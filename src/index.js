@@ -1,6 +1,7 @@
 import {Engine, defineEngine} from 'JsFile';
 import createDocument from './reader/createDocument';
 import parse from './reader/parse';
+import pf from './polyfill';
 
 /**
  * @description Supported files by engine
