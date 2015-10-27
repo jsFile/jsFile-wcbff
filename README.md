@@ -1,4 +1,4 @@
-# jsFile-wcbff [![Build Status](https://secure.travis-ci.org/jsFile/jsFile-wcbff.png?branch=master)](https://travis-ci.org/jsFile/jsFile-wcbff)
+# jsFile-wcbff [![Build Status](https://secure.travis-ci.org/jsFile/jsFile-wcbff.png?branch=master)](https://travis-ci.org/jsFile/jsFile-wcbff) [![Coverage Status](https://coveralls.io/repos/jsFile/jsFile-wcbff/badge.svg?branch=master&service=github)](https://coveralls.io/github/jsFile/jsFile-wcbff?branch=master)
 Engine for jsFile library to work with document in [WCBFF](https://en.wikipedia.org/wiki/Compound_File_Binary_Format) format (files like .doc)
 
 ## Installation
