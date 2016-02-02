@@ -3,7 +3,7 @@
  * @param options
  * @returns {Array}
  */
-export default function (options = {}) {
+export default function uintArraySplit (options = {}) {
     let arr = [];
     let j = 0;
     let {data = [], length = 0} = options;

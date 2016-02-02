@@ -1,11 +1,10 @@
 import JsFile from 'JsFile';
 import getStreams from './getStreams';
 import parseDoc from './doc/parse';
-const {Document} = JsFile;
 const {errors: {invalidReadFile, invalidFileType}} = JsFile.Engine;
 
-export default function () {
-    return new Promise(function (resolve, reject) {
+export default function parse () {
+    return new Promise((resolve, reject) => {
         if (!this.isValid()) {
             reject(new Error(invalidFileType));
             return;
@@ -16,12 +15,12 @@ export default function () {
          * @type {boolean}
          */
         const isDoc = true;
-        const fileName = this.file.name;
+
+        //const fileName = this.file.name;
 
         getStreams(this.file).then((fileBinaryReadData) => {
             if (isDoc) {
-                parseDoc(fileBinaryReadData).then((fileBinaryReadData) => {
-                    console.log(fileBinaryReadData.text);
+                parseDoc(fileBinaryReadData).then(() => {
                     /*prepareDocument(fileBinaryReadData.text, (documentData) => {
                         documentData.name = ((documentData.fileInfo && documentData.fileInfo.title) || fileName || '')
                             .replace(/\.[^.]+$/, '');
@@ -33,5 +32,5 @@ export default function () {
                 reject(new Error(invalidFileType));
             }
         }, () => reject(new Error(invalidFileType)));
-    }.bind(this));
+    });
 }

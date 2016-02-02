@@ -1,7 +1,9 @@
-import {Engine, defineEngine} from 'JsFile';
+import JsFile from 'JsFile';
 import createDocument from './reader/createDocument';
 import parse from './reader/parse';
-import pf from './polyfill';
+import './polyfill';
+
+const {Engine, defineEngine} = JsFile;
 
 /**
  * @description Supported files by engine
@@ -13,19 +15,20 @@ const files = {
 };
 
 class WcbffEngine extends Engine {
-    createDocument = createDocument
+    constructor () {
+        super(...arguments);
 
-    files = files
-
-    parser = parse
+        this.createDocument = createDocument;
+        this.files = files;
+        this.parser = parse;
+    }
 
     static test (file) {
         return Boolean(file && Engine.validateFile(file, files));
     }
-
-    static mimeTypes = files.mime.slice(0)
 }
 
+WcbffEngine.mimeTypes = files.mime.slice(0);
 defineEngine(WcbffEngine);
 
 export default WcbffEngine;

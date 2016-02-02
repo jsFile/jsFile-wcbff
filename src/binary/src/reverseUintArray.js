@@ -3,7 +3,7 @@
  * @param array
  * @returns {*}
  */
-export default function (array = []) {
+export default function reverseUintArray (array = []) {
     let dataArray;
     const len = array.length;
 

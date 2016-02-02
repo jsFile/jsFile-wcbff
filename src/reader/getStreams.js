@@ -12,7 +12,7 @@ import getStreamByIndex from './getStreamByIndex';
  * @param file
  * @private
  */
-export default function (file) {
+export default function getStreams (file) {
     return new Promise(function (resolve, reject) {
         const binaryData = new Binary(file);
 

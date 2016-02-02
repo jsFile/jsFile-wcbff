@@ -3,7 +3,7 @@
  * @param array
  * @returns {string}
  */
-export default function (array = {}) {
+export default function uintArrayToHex (array = {}) {
     let result = '';
     const len = array.length;
 

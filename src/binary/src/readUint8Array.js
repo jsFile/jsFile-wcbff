@@ -2,8 +2,8 @@
  *
  * @param options
  */
-export default function (options = {}) {
-    return new Promise(function (resolve, reject) {
+export default function readUint8Array (options = {}) {
+    return new Promise((resolve, reject) => {
         const reader = new FileReader();
         const {index = 0, length = 0} = options;
 
@@ -13,5 +13,5 @@ export default function (options = {}) {
 
         reader.onerror = reject;
         reader.readAsArrayBuffer(this.blob.slice(index, index + length));
-    }.bind(this));
+    });
 }

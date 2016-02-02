@@ -56,74 +56,75 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	'use strict';
 
-	Object.defineProperty(exports, '__esModule', {
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
 
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
 	var _JsFile = __webpack_require__(1);
 
-	var _readerCreateDocument = __webpack_require__(2);
+	var _JsFile2 = _interopRequireDefault(_JsFile);
 
-	var _readerCreateDocument2 = _interopRequireDefault(_readerCreateDocument);
+	var _createDocument = __webpack_require__(2);
 
-	var _readerParse = __webpack_require__(3);
+	var _createDocument2 = _interopRequireDefault(_createDocument);
 
-	var _readerParse2 = _interopRequireDefault(_readerParse);
+	var _parse = __webpack_require__(3);
 
-	var _polyfill = __webpack_require__(33);
+	var _parse2 = _interopRequireDefault(_parse);
 
-	var _polyfill2 = _interopRequireDefault(_polyfill);
+	__webpack_require__(33);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var Engine = _JsFile2.default.Engine;
+	var defineEngine = _JsFile2.default.defineEngine;
 
 	/**
 	 * @description Supported files by engine
 	 * @type {{extension: Array, mime: Array}}
 	 */
+
 	var files = {
 	    extension: ['doc'],
 	    mime: ['application/msword']
 	};
 
-	var WcbffEngine = (function (_Engine) {
+	var WcbffEngine = function (_Engine) {
 	    _inherits(WcbffEngine, _Engine);
 
 	    function WcbffEngine() {
 	        _classCallCheck(this, WcbffEngine);
 
-	        _get(Object.getPrototypeOf(WcbffEngine.prototype), 'constructor', this).apply(this, arguments);
+	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(WcbffEngine).apply(this, arguments));
 
-	        this.createDocument = _readerCreateDocument2['default'];
-	        this.files = files;
-	        this.parser = _readerParse2['default'];
+	        _this.createDocument = _createDocument2.default;
+	        _this.files = files;
+	        _this.parser = _parse2.default;
+	        return _this;
 	    }
 
 	    _createClass(WcbffEngine, null, [{
 	        key: 'test',
 	        value: function test(file) {
-	            return Boolean(file && _JsFile.Engine.validateFile(file, files));
+	            return Boolean(file && Engine.validateFile(file, files));
 	        }
-	    }, {
-	        key: 'mimeTypes',
-	        value: files.mime.slice(0),
-	        enumerable: true
 	    }]);
 
 	    return WcbffEngine;
-	})(_JsFile.Engine);
+	}(Engine);
 
-	(0, _JsFile.defineEngine)(WcbffEngine);
+	WcbffEngine.mimeTypes = files.mime.slice(0);
+	defineEngine(WcbffEngine);
 
-	exports['default'] = WcbffEngine;
-	module.exports = exports['default'];
+	exports.default = WcbffEngine;
 
 /***/ },
 /* 1 */
@@ -133,24 +134,15 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 /* 2 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ function(module, exports) {
 
-	'use strict';
+	"use strict";
 
-	Object.defineProperty(exports, '__esModule', {
+	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-	var _JsFile = __webpack_require__(1);
-
-	var _JsFile2 = _interopRequireDefault(_JsFile);
-
-	exports['default'] = function (data) {};
-
-	;
-	module.exports = exports['default'];
+	exports.default = createDocument;
+	function createDocument() {}
 
 /***/ },
 /* 3 */
@@ -158,11 +150,10 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	'use strict';
 
-	Object.defineProperty(exports, '__esModule', {
+	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+	exports.default = parse;
 
 	var _JsFile = __webpack_require__(1);
 
@@ -172,18 +163,20 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _getStreams2 = _interopRequireDefault(_getStreams);
 
-	var _docParse = __webpack_require__(28);
+	var _parse = __webpack_require__(28);
 
-	var _docParse2 = _interopRequireDefault(_docParse);
+	var _parse2 = _interopRequireDefault(_parse);
 
-	var Document = _JsFile2['default'].Document;
-	var _JsFile$Engine$errors = _JsFile2['default'].Engine.errors;
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var _JsFile$Engine$errors = _JsFile2.default.Engine.errors;
 	var invalidReadFile = _JsFile$Engine$errors.invalidReadFile;
 	var invalidFileType = _JsFile$Engine$errors.invalidFileType;
+	function parse() {
+	    var _this = this;
 
-	exports['default'] = function () {
-	    return new Promise((function (resolve, reject) {
-	        if (!this.isValid()) {
+	    return new Promise(function (resolve, reject) {
+	        if (!_this.isValid()) {
 	            reject(new Error(invalidFileType));
 	            return;
 	        }
@@ -193,16 +186,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	         * @type {boolean}
 	         */
 	        var isDoc = true;
-	        var fileName = this.file.name;
 
-	        (0, _getStreams2['default'])(this.file).then(function (fileBinaryReadData) {
+	        //const fileName = this.file.name;
+
+	        (0, _getStreams2.default)(_this.file).then(function (fileBinaryReadData) {
 	            if (isDoc) {
-	                (0, _docParse2['default'])(fileBinaryReadData).then(function (fileBinaryReadData) {
-	                    console.log(fileBinaryReadData.text);
+	                (0, _parse2.default)(fileBinaryReadData).then(function () {
 	                    /*prepareDocument(fileBinaryReadData.text, (documentData) => {
 	                        documentData.name = ((documentData.fileInfo && documentData.fileInfo.title) || fileName || '')
 	                            .replace(/\.[^.]+$/, '');
-	                         resolve(new Document(documentData));
+	                          resolve(new Document(documentData));
 	                    });*/
 	                }, function () {
 	                    return reject(new Error(invalidReadFile));
@@ -213,10 +206,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	        }, function () {
 	            return reject(new Error(invalidFileType));
 	        });
-	    }).bind(this));
-	};
-
-	module.exports = exports['default'];
+	    });
+	}
 
 /***/ },
 /* 4 */
@@ -224,15 +215,14 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	'use strict';
 
-	Object.defineProperty(exports, '__esModule', {
+	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
+	exports.default = getStreams;
 
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+	var _index = __webpack_require__(5);
 
-	var _binaryIndex = __webpack_require__(5);
-
-	var _binaryIndex2 = _interopRequireDefault(_binaryIndex);
+	var _index2 = _interopRequireDefault(_index);
 
 	var _readHeader = __webpack_require__(17);
 
@@ -262,15 +252,16 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _getStreamByIndex2 = _interopRequireDefault(_getStreamByIndex);
 
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 	/**
 	 *
 	 * @param file
 	 * @private
 	 */
-
-	exports['default'] = function (file) {
+	function getStreams(file) {
 	    return new Promise(function (resolve, reject) {
-	        var binaryData = new _binaryIndex2['default'](file);
+	        var binaryData = new _index2.default(file);
 
 	        binaryData.readUint8Array({
 	            index: 0,
@@ -289,20 +280,20 @@ return /******/ (function(modules) { // webpackBootstrap
 	                return reject();
 	            }
 
-	            return (0, _readHeader2['default'])({ fileBinaryReadData: fileBinaryReadData }).then(function (fileBinaryReadData) {
-	                return (0, _readDifat2['default'])({ fileBinaryReadData: fileBinaryReadData }).then(function (fileBinaryReadData) {
-	                    return (0, _readFatChains2['default'])({
+	            return (0, _readHeader2.default)({ fileBinaryReadData: fileBinaryReadData }).then(function (fileBinaryReadData) {
+	                return (0, _readDifat2.default)({ fileBinaryReadData: fileBinaryReadData }).then(function (fileBinaryReadData) {
+	                    return (0, _readFatChains2.default)({
 	                        fileBinaryReadData: fileBinaryReadData,
 	                        size: 1 << fileBinaryReadData.sectorShift,
 	                        length: fileBinaryReadData.difat.length
 	                    }).then(function (fileBinaryReadData) {
-	                        return (0, _readMiniFatChains2['default'])({
+	                        return (0, _readMiniFatChains2.default)({
 	                            fileBinaryReadData: fileBinaryReadData,
 	                            from: fileBinaryReadData.fMiniFat,
 	                            size: 1 << fileBinaryReadData.sectorShift
 	                        }).then(function (fileBinaryReadData) {
-	                            return (0, _readDirectoryStructure2['default'])({ fileBinaryReadData: fileBinaryReadData }).then(function (fileBinaryReadData) {
-	                                var rootStreamIndex = (0, _getStreamIndexByName2['default'])({
+	                            return (0, _readDirectoryStructure2.default)({ fileBinaryReadData: fileBinaryReadData }).then(function (fileBinaryReadData) {
+	                                var rootStreamIndex = (0, _getStreamIndexByName2.default)({
 	                                    name: 'Root Entry',
 	                                    fileBinaryReadData: fileBinaryReadData
 	                                });
@@ -312,7 +303,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                                    return reject();
 	                                }
 
-	                                return (0, _getStreamByIndex2['default'])({
+	                                return (0, _getStreamByIndex2.default)({
 	                                    index: rootStreamIndex,
 	                                    fileBinaryReadData: fileBinaryReadData,
 	                                    isRoot: true
@@ -329,9 +320,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            });
 	        }, reject);
 	    });
-	};
-
-	module.exports = exports['default'];
+	}
 
 /***/ },
 /* 5 */
@@ -339,57 +328,57 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	'use strict';
 
-	Object.defineProperty(exports, '__esModule', {
+	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
 
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+	var _findPosition = __webpack_require__(6);
 
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+	var _findPosition2 = _interopRequireDefault(_findPosition);
 
-	var _srcFindPositionJs = __webpack_require__(6);
+	var _getDataHelper = __webpack_require__(7);
 
-	var _srcFindPositionJs2 = _interopRequireDefault(_srcFindPositionJs);
+	var _getDataHelper2 = _interopRequireDefault(_getDataHelper);
 
-	var _srcGetDataHelper = __webpack_require__(7);
+	var _getUint8Array = __webpack_require__(8);
 
-	var _srcGetDataHelper2 = _interopRequireDefault(_srcGetDataHelper);
+	var _getUint8Array2 = _interopRequireDefault(_getUint8Array);
 
-	var _srcGetUint8Array = __webpack_require__(8);
+	var _getUint16Array = __webpack_require__(9);
 
-	var _srcGetUint8Array2 = _interopRequireDefault(_srcGetUint8Array);
+	var _getUint16Array2 = _interopRequireDefault(_getUint16Array);
 
-	var _srcGetUint16Array = __webpack_require__(9);
+	var _getUint32Array = __webpack_require__(10);
 
-	var _srcGetUint16Array2 = _interopRequireDefault(_srcGetUint16Array);
+	var _getUint32Array2 = _interopRequireDefault(_getUint32Array);
 
-	var _srcGetUint32Array = __webpack_require__(10);
+	var _ord = __webpack_require__(11);
 
-	var _srcGetUint32Array2 = _interopRequireDefault(_srcGetUint32Array);
+	var _ord2 = _interopRequireDefault(_ord);
 
-	var _srcOrd = __webpack_require__(11);
+	var _readUint8Array = __webpack_require__(12);
 
-	var _srcOrd2 = _interopRequireDefault(_srcOrd);
+	var _readUint8Array2 = _interopRequireDefault(_readUint8Array);
 
-	var _srcReadUint8Array = __webpack_require__(12);
+	var _reverseUintArray = __webpack_require__(13);
 
-	var _srcReadUint8Array2 = _interopRequireDefault(_srcReadUint8Array);
+	var _reverseUintArray2 = _interopRequireDefault(_reverseUintArray);
 
-	var _srcReverseUintArray = __webpack_require__(13);
+	var _uintArraySplit = __webpack_require__(14);
 
-	var _srcReverseUintArray2 = _interopRequireDefault(_srcReverseUintArray);
+	var _uintArraySplit2 = _interopRequireDefault(_uintArraySplit);
 
-	var _srcUintArraySplit = __webpack_require__(14);
+	var _uintArrayToHex = __webpack_require__(15);
 
-	var _srcUintArraySplit2 = _interopRequireDefault(_srcUintArraySplit);
+	var _uintArrayToHex2 = _interopRequireDefault(_uintArrayToHex);
 
-	var _srcUintArrayToHex = __webpack_require__(15);
+	var _excludeUintArray = __webpack_require__(16);
 
-	var _srcUintArrayToHex2 = _interopRequireDefault(_srcUintArrayToHex);
+	var _excludeUintArray2 = _interopRequireDefault(_excludeUintArray);
 
-	var _srcExcludeUintArray = __webpack_require__(16);
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var _srcExcludeUintArray2 = _interopRequireDefault(_srcExcludeUintArray);
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 	/**
 	 * @param blob
@@ -400,41 +389,39 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	    _classCallCheck(this, Binary);
 
-	    this.uintArrayToHex = _srcUintArrayToHex2['default'];
-	    this.findPosition = _srcFindPositionJs2['default'];
-	    this.getDataHelper = _srcGetDataHelper2['default'];
-	    this.getUint8Array = _srcGetUint8Array2['default'];
-	    this.getUint16Array = _srcGetUint16Array2['default'];
-	    this.getUint32Array = _srcGetUint32Array2['default'];
-	    this.ord = _srcOrd2['default'];
-	    this.readUint8Array = _srcReadUint8Array2['default'];
-	    this.reverseUintArray = _srcReverseUintArray2['default'];
-	    this.uintArraySplit = _srcUintArraySplit2['default'];
-	    this.excludeUintArray = _srcExcludeUintArray2['default'];
-
 	    this.blob = blob;
 	    this.size = blob && blob.size || 0;
+	    this.ord = _ord2.default;
+	    this.uintArrayToHex = _uintArrayToHex2.default;
+	    this.findPosition = _findPosition2.default;
+	    this.getDataHelper = _getDataHelper2.default;
+	    this.getUint8Array = _getUint8Array2.default;
+	    this.getUint16Array = _getUint16Array2.default;
+	    this.getUint32Array = _getUint32Array2.default;
+	    this.readUint8Array = _readUint8Array2.default;
+	    this.reverseUintArray = _reverseUintArray2.default;
+	    this.uintArraySplit = _uintArraySplit2.default;
+	    this.excludeUintArray = _excludeUintArray2.default;
 	};
 
-	exports['default'] = Binary;
-	module.exports = exports['default'];
+	exports.default = Binary;
 
 /***/ },
 /* 6 */
 /***/ function(module, exports) {
 
-	/**
-	 *
-	 * @param options
-	 * @returns {*}
-	 */
 	"use strict";
 
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
-
-	exports["default"] = function () {
+	exports.default = findPosition;
+	/**
+	 *
+	 * @param options
+	 * @returns {*}
+	 */
+	function findPosition() {
 	    var options = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
 	    var _options$offset = options.offset;
 	    var offset = _options$offset === undefined ? 0 : _options$offset;
@@ -451,27 +438,25 @@ return /******/ (function(modules) { // webpackBootstrap
 	    });
 
 	    return Array.prototype.indexOf.call(bytes, needle);
-	};
-
-	module.exports = exports["default"];
+	}
 
 /***/ },
 /* 7 */
 /***/ function(module, exports) {
 
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports.default = getDataHelper;
 	/**
 	 *
 	 * @param byteLength {number}
 	 * @param bytes {array}
 	 * @returns {{buffer: ArrayBuffer, array: Uint8Array, view: DataView}}
 	 */
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	exports["default"] = function () {
+	function getDataHelper() {
 	    var byteLength = arguments.length <= 0 || arguments[0] === undefined ? 0 : arguments[0];
 	    var bytes = arguments.length <= 1 || arguments[1] === undefined ? [] : arguments[1];
 
@@ -484,89 +469,71 @@ return /******/ (function(modules) { // webpackBootstrap
 	        array: array,
 	        view: new DataView(buffer)
 	    };
-	};
-
-	module.exports = exports["default"];
+	}
 
 /***/ },
 /* 8 */
 /***/ function(module, exports) {
 
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.default = getUint8Array;
 	/**
 	 *
 	 * @param size
 	 * @returns {Uint8Array}
 	 */
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	exports["default"] = function (size) {
+	function getUint8Array(size) {
 	  return new Uint8Array(new ArrayBuffer(size));
-	};
-
-	module.exports = exports["default"];
+	}
 
 /***/ },
 /* 9 */
 /***/ function(module, exports) {
 
-	/**
-	 *
-	 * @param size
-	 * @returns {Uint16Array}
-	 */
 	"use strict";
 
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
 
-	exports["default"] = function (size) {
+	exports.default = function (size) {
 	  return new Uint16Array(new ArrayBuffer(size));
 	};
-
-	module.exports = exports["default"];
 
 /***/ },
 /* 10 */
 /***/ function(module, exports) {
 
-	/**
-	 *
-	 * @param size
-	 * @returns {Uint32Array}
-	 */
 	"use strict";
 
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
 
-	exports["default"] = function (size) {
+	exports.default = function (size) {
 	  return new Uint32Array(new ArrayBuffer(size));
 	};
-
-	module.exports = exports["default"];
 
 /***/ },
 /* 11 */
 /***/ function(module, exports) {
 
-	/**
-	 *
-	 * @param str
-	 * @returns {*}
-	 */
 	"use strict";
 
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
-
-	exports["default"] = function (str) {
+	exports.default = ord;
+	/**
+	 *
+	 * @param str
+	 * @returns {*}
+	 */
+	function ord(str) {
 	    str = String(str);
 
 	    var code = str.charCodeAt(0);
@@ -580,28 +547,28 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }
 
 	    return code;
-	};
-
-	module.exports = exports["default"];
+	}
 
 /***/ },
 /* 12 */
 /***/ function(module, exports) {
 
-	/**
-	 *
-	 * @param options
-	 */
 	"use strict";
 
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
+	exports.default = readUint8Array;
+	/**
+	 *
+	 * @param options
+	 */
+	function readUint8Array() {
+	    var _this = this;
 
-	exports["default"] = function () {
 	    var options = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
 
-	    return new Promise((function (resolve, reject) {
+	    return new Promise(function (resolve, reject) {
 	        var reader = new FileReader();
 	        var _options$index = options.index;
 	        var index = _options$index === undefined ? 0 : _options$index;
@@ -613,28 +580,26 @@ return /******/ (function(modules) { // webpackBootstrap
 	        };
 
 	        reader.onerror = reject;
-	        reader.readAsArrayBuffer(this.blob.slice(index, index + length));
-	    }).bind(this));
-	};
-
-	module.exports = exports["default"];
+	        reader.readAsArrayBuffer(_this.blob.slice(index, index + length));
+	    });
+	}
 
 /***/ },
 /* 13 */
 /***/ function(module, exports) {
 
-	/**
-	 *
-	 * @param array
-	 * @returns {*}
-	 */
 	"use strict";
 
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
-
-	exports["default"] = function () {
+	exports.default = reverseUintArray;
+	/**
+	 *
+	 * @param array
+	 * @returns {*}
+	 */
+	function reverseUintArray() {
 	    var array = arguments.length <= 0 || arguments[0] === undefined ? [] : arguments[0];
 
 	    var dataArray = undefined;
@@ -652,26 +617,24 @@ return /******/ (function(modules) { // webpackBootstrap
 	    dataArray.set(Array.prototype.slice.call(array, 0).reverse(), 0);
 
 	    return dataArray;
-	};
-
-	module.exports = exports["default"];
+	}
 
 /***/ },
 /* 14 */
 /***/ function(module, exports) {
 
-	/**
-	 *
-	 * @param options
-	 * @returns {Array}
-	 */
 	"use strict";
 
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
-
-	exports["default"] = function () {
+	exports.default = uintArraySplit;
+	/**
+	 *
+	 * @param options
+	 * @returns {Array}
+	 */
+	function uintArraySplit() {
 	    var options = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
 
 	    var arr = [];
@@ -694,26 +657,24 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }
 
 	    return arr;
-	};
-
-	module.exports = exports["default"];
+	}
 
 /***/ },
 /* 15 */
 /***/ function(module, exports) {
 
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports.default = uintArrayToHex;
 	/**
 	 *
 	 * @param array
 	 * @returns {string}
 	 */
-	'use strict';
-
-	Object.defineProperty(exports, '__esModule', {
-	    value: true
-	});
-
-	exports['default'] = function () {
+	function uintArrayToHex() {
 	    var array = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
 
 	    var result = '';
@@ -725,26 +686,24 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }
 
 	    return result;
-	};
-
-	module.exports = exports['default'];
+	}
 
 /***/ },
 /* 16 */
 /***/ function(module, exports) {
 
-	/**
-	 *
-	 * @param options
-	 * @returns {*}
-	 */
 	"use strict";
 
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
-
-	exports["default"] = function () {
+	exports.default = excludeUintArray;
+	/**
+	 *
+	 * @param options
+	 * @returns {*}
+	 */
+	function excludeUintArray() {
 	    var options = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
 
 	    var dataArray = undefined;
@@ -771,9 +730,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	    dataArray.set(arr, 0);
 	    return dataArray;
-	};
-
-	module.exports = exports["default"];
+	}
 
 /***/ },
 /* 17 */
@@ -781,11 +738,9 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	'use strict';
 
-	Object.defineProperty(exports, '__esModule', {
+	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
 	var _getShort = __webpack_require__(18);
 
@@ -795,13 +750,15 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _getLong2 = _interopRequireDefault(_getLong);
 
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 	/**
 	 *
 	 * @param params
 	 * @private
 	 */
 
-	exports['default'] = function () {
+	exports.default = function () {
 	    var params = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
 	    var fileBinaryReadData = params.fileBinaryReadData;
 
@@ -813,14 +770,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	        var queue = [];
 	        fileBinaryReadData.isLittleEndian = fileBinaryReadData.binaryData.uintArrayToHex(bytes) === 'FEFF';
 
-	        queue.push((0, _getShort2['default'])({
+	        queue.push((0, _getShort2.default)({
 	            fileBinaryReadData: fileBinaryReadData,
 	            from: 0x1A
 	        }).then(function (version) {
 	            fileBinaryReadData.version = version;
 
 	            if (version === 4) {
-	                return (0, _getLong2['default'])({
+	                return (0, _getLong2.default)({
 	                    fileBinaryReadData: fileBinaryReadData,
 	                    from: 0x28
 	                }).then(function (cDir) {
@@ -829,63 +786,63 @@ return /******/ (function(modules) { // webpackBootstrap
 	            }
 	        }));
 
-	        queue.push((0, _getShort2['default'])({
+	        queue.push((0, _getShort2.default)({
 	            fileBinaryReadData: fileBinaryReadData,
 	            from: 0x1E
 	        }).then(function (sectorShift) {
 	            return fileBinaryReadData.sectorShift = sectorShift;
 	        }));
 
-	        queue.push((0, _getShort2['default'])({
+	        queue.push((0, _getShort2.default)({
 	            fileBinaryReadData: fileBinaryReadData,
 	            from: 0x20
 	        }).then(function (miniSectorShift) {
 	            return fileBinaryReadData.miniSectorShift = miniSectorShift;
 	        }));
 
-	        queue.push((0, _getLong2['default'])({
+	        queue.push((0, _getLong2.default)({
 	            fileBinaryReadData: fileBinaryReadData,
 	            from: 0x38
 	        }).then(function (miniSectorCutoff) {
 	            return fileBinaryReadData.miniSectorCutoff = miniSectorCutoff;
 	        }));
 
-	        queue.push((0, _getLong2['default'])({
+	        queue.push((0, _getLong2.default)({
 	            fileBinaryReadData: fileBinaryReadData,
 	            from: 0x30
 	        }).then(function (fDir) {
 	            return fileBinaryReadData.fDir = fDir;
 	        }));
 
-	        queue.push((0, _getLong2['default'])({
+	        queue.push((0, _getLong2.default)({
 	            fileBinaryReadData: fileBinaryReadData,
 	            from: 0x2C
 	        }).then(function (fatCount) {
 	            return fileBinaryReadData.fatCount = fatCount;
 	        }));
 
-	        queue.push((0, _getLong2['default'])({
+	        queue.push((0, _getLong2.default)({
 	            fileBinaryReadData: fileBinaryReadData,
 	            from: 0x40
 	        }).then(function (minifatCount) {
 	            return fileBinaryReadData.minifatCount = minifatCount;
 	        }));
 
-	        queue.push((0, _getLong2['default'])({
+	        queue.push((0, _getLong2.default)({
 	            fileBinaryReadData: fileBinaryReadData,
 	            from: 0x3C
 	        }).then(function (fMiniFat) {
 	            return fileBinaryReadData.fMiniFat = fMiniFat;
 	        }));
 
-	        queue.push((0, _getLong2['default'])({
+	        queue.push((0, _getLong2.default)({
 	            fileBinaryReadData: fileBinaryReadData,
 	            from: 0x48
 	        }).then(function (cDifat) {
 	            return fileBinaryReadData.cDifat = cDifat;
 	        }));
 
-	        queue.push((0, _getLong2['default'])({
+	        queue.push((0, _getLong2.default)({
 	            fileBinaryReadData: fileBinaryReadData,
 	            from: 0x44
 	        }).then(function (fDifat) {
@@ -898,23 +855,21 @@ return /******/ (function(modules) { // webpackBootstrap
 	    });
 	};
 
-	module.exports = exports['default'];
-
 /***/ },
 /* 18 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	Object.defineProperty(exports, '__esModule', {
+	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
 	var _getBytes = __webpack_require__(19);
 
 	var _getBytes2 = _interopRequireDefault(_getBytes);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	/**
 	 *
@@ -922,10 +877,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * @private
 	 */
 
-	exports['default'] = function () {
+	exports.default = function () {
 	    var params = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
 
-	    return (0, _getBytes2['default'])({
+	    return (0, _getBytes2.default)({
 	        data: params.data,
 	        from: params.from,
 	        count: 2,
@@ -933,24 +888,22 @@ return /******/ (function(modules) { // webpackBootstrap
 	    });
 	};
 
-	module.exports = exports['default'];
-
 /***/ },
 /* 19 */
 /***/ function(module, exports) {
 
-	/**
-	 *
-	 * @param params
-	 * @private
-	 */
 	"use strict";
 
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
+	/**
+	 *
+	 * @param params
+	 * @private
+	 */
 
-	exports["default"] = function () {
+	exports.default = function () {
 	    var params = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
 
 	    return new Promise(function (resolve, reject) {
@@ -991,23 +944,21 @@ return /******/ (function(modules) { // webpackBootstrap
 	    });
 	};
 
-	module.exports = exports["default"];
-
 /***/ },
 /* 20 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	Object.defineProperty(exports, '__esModule', {
+	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
 	var _getBytes = __webpack_require__(19);
 
 	var _getBytes2 = _interopRequireDefault(_getBytes);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	/**
 	 *
@@ -1015,10 +966,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * @private
 	 */
 
-	exports['default'] = function () {
+	exports.default = function () {
 	    var params = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
 
-	    return (0, _getBytes2['default'])({
+	    return (0, _getBytes2.default)({
 	        data: params.data,
 	        from: params.from,
 	        count: 4,
@@ -1026,23 +977,21 @@ return /******/ (function(modules) { // webpackBootstrap
 	    });
 	};
 
-	module.exports = exports['default'];
-
 /***/ },
 /* 21 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	Object.defineProperty(exports, '__esModule', {
+	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
 	var _getLong = __webpack_require__(20);
 
 	var _getLong2 = _interopRequireDefault(_getLong);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	/**
 	 *
@@ -1050,7 +999,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * @private
 	 */
 
-	exports['default'] = function () {
+	exports.default = function () {
 	    var params = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
 
 	    return new Promise(function (resolve, reject) {
@@ -1062,7 +1011,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        fileBinaryReadData.difat.length = queue.length = i;
 
 	        while (i--) {
-	            queue[i] = (0, _getLong2['default'])({
+	            queue[i] = (0, _getLong2.default)({
 	                fileBinaryReadData: fileBinaryReadData,
 
 	                //0x4C = 76
@@ -1119,16 +1068,18 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }
 
 	    var start = from + 1 << fileBinaryReadData.sectorShift;
-	    for (var _i = 0; _i < len; _i += 4) {
-	        queue.push((0, _getLong2['default'])({
+	    var i = 0;
+
+	    for (; i < len; i += 4) {
+	        queue.push((0, _getLong2.default)({
 	            fileBinaryReadData: fileBinaryReadData,
-	            from: start + _i
+	            from: start + i
 	        }).then(function (result) {
 	            fileBinaryReadData.difat.push(result);
 	        }));
 	    }
 
-	    queue.push((0, _getLong2['default'])({
+	    queue.push((0, _getLong2.default)({
 	        fileBinaryReadData: fileBinaryReadData,
 	        from: start + i
 	    }).then(function (result) {
@@ -1150,7 +1101,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	        }
 	    }, reject);
 	}
-	module.exports = exports['default'];
 
 /***/ },
 /* 22 */
@@ -1158,22 +1108,22 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	'use strict';
 
-	Object.defineProperty(exports, '__esModule', {
+	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
 	var _getLong = __webpack_require__(20);
 
 	var _getLong2 = _interopRequireDefault(_getLong);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	/**
 	 *
 	 * @private
 	 */
 
-	exports['default'] = function () {
+	exports.default = function () {
 	    var params = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
 
 	    return new Promise(function (resolve, reject) {
@@ -1183,8 +1133,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	        var length = _params$length === undefined ? 0 : _params$length;
 	        var _params$size = params.size;
 	        var size = _params$size === undefined ? 0 : _params$size;
-	        var _params$fileBinaryReadData = params.fileBinaryReadData;
-	        var fileBinaryReadData = _params$fileBinaryReadData === undefined ? {} : _params$fileBinaryReadData;
+	        var _params$fileBinaryRea = params.fileBinaryReadData;
+	        var fileBinaryReadData = _params$fileBinaryRea === undefined ? {} : _params$fileBinaryRea;
 
 	        var sectorShift = fileBinaryReadData.sectorShift;
 	        var queue = [];
@@ -1192,7 +1142,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        fileBinaryReadData.fatChains = [];
 	        for (; index < length; index++) {
 	            for (var j = 0; j < size; j += 4) {
-	                queue.push((0, _getLong2['default'])({
+	                queue.push((0, _getLong2.default)({
 	                    fileBinaryReadData: fileBinaryReadData,
 	                    from: (fileBinaryReadData.difat[index] + 1 << sectorShift) + index
 	                }).then(function (result) {
@@ -1207,23 +1157,21 @@ return /******/ (function(modules) { // webpackBootstrap
 	    });
 	};
 
-	module.exports = exports['default'];
-
 /***/ },
 /* 23 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	Object.defineProperty(exports, '__esModule', {
+	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
 	var _getLong = __webpack_require__(20);
 
 	var _getLong2 = _interopRequireDefault(_getLong);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	/**
 	 *
@@ -1231,7 +1179,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * @private
 	 */
 
-	exports['default'] = function () {
+	exports.default = function () {
 	    var params = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
 
 	    return new Promise(function (resolve, reject) {
@@ -1240,18 +1188,18 @@ return /******/ (function(modules) { // webpackBootstrap
 	        var from = _params$from === undefined ? 0 : _params$from;
 	        var _params$size = params.size;
 	        var size = _params$size === undefined ? 0 : _params$size;
-	        var _params$fileBinaryReadData = params.fileBinaryReadData;
-	        var fileBinaryReadData = _params$fileBinaryReadData === undefined ? {} : _params$fileBinaryReadData;
-	        var _fileBinaryReadData$sectorShift = fileBinaryReadData.sectorShift;
-	        var sectorShift = _fileBinaryReadData$sectorShift === undefined ? 0 : _fileBinaryReadData$sectorShift;
-	        var _fileBinaryReadData$endOfChain = fileBinaryReadData.endOfChain;
-	        var endOfChain = _fileBinaryReadData$endOfChain === undefined ? 0 : _fileBinaryReadData$endOfChain;
+	        var _params$fileBinaryRea = params.fileBinaryReadData;
+	        var fileBinaryReadData = _params$fileBinaryRea === undefined ? {} : _params$fileBinaryRea;
+	        var _fileBinaryReadData$s = fileBinaryReadData.sectorShift;
+	        var sectorShift = _fileBinaryReadData$s === undefined ? 0 : _fileBinaryReadData$s;
+	        var _fileBinaryReadData$e = fileBinaryReadData.endOfChain;
+	        var endOfChain = _fileBinaryReadData$e === undefined ? 0 : _fileBinaryReadData$e;
 
 	        fileBinaryReadData.miniFatChains = [];
 
 	        while (from !== endOfChain) {
 	            for (var i = 0; i < size; i += 4) {
-	                queue.push((0, _getLong2['default'])({
+	                queue.push((0, _getLong2.default)({
 	                    fileBinaryReadData: fileBinaryReadData,
 	                    from: (from + 1 << sectorShift) + i
 	                }).then(function (result) {
@@ -1268,19 +1216,15 @@ return /******/ (function(modules) { // webpackBootstrap
 	    });
 	};
 
-	module.exports = exports['default'];
-
 /***/ },
 /* 24 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	Object.defineProperty(exports, '__esModule', {
+	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
 	var _getShort = __webpack_require__(18);
 
@@ -1298,18 +1242,20 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _utf16ToAnsi2 = _interopRequireDefault(_utf16ToAnsi);
 
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 	/**
 	 *
 	 * @param params
 	 * @private
 	 */
 
-	exports['default'] = function () {
+	exports.default = function () {
 	    var params = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
 
 	    return new Promise(function (resolve, reject) {
-	        var _params$fileBinaryReadData = params.fileBinaryReadData;
-	        var fileBinaryReadData = _params$fileBinaryReadData === undefined ? {} : _params$fileBinaryReadData;
+	        var _params$fileBinaryRea = params.fileBinaryReadData;
+	        var fileBinaryReadData = _params$fileBinaryRea === undefined ? {} : _params$fileBinaryRea;
 
 	        var from = fileBinaryReadData.fDir;
 	        var size = 1 << fileBinaryReadData.sectorShift;
@@ -1331,12 +1277,12 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	function recursiveRead(from, size, fileBinaryReadData, resolve, reject) {
 	    var queue = [];
-	    var _fileBinaryReadData$sectorShift = fileBinaryReadData.sectorShift;
-	    var sectorShift = _fileBinaryReadData$sectorShift === undefined ? 0 : _fileBinaryReadData$sectorShift;
-	    var _fileBinaryReadData$endOfChain = fileBinaryReadData.endOfChain;
-	    var endOfChain = _fileBinaryReadData$endOfChain === undefined ? 0 : _fileBinaryReadData$endOfChain;
-	    var _fileBinaryReadData$binaryData = fileBinaryReadData.binaryData;
-	    var binaryData = _fileBinaryReadData$binaryData === undefined ? {} : _fileBinaryReadData$binaryData;
+	    var _fileBinaryReadData$s = fileBinaryReadData.sectorShift;
+	    var sectorShift = _fileBinaryReadData$s === undefined ? 0 : _fileBinaryReadData$s;
+	    var _fileBinaryReadData$e = fileBinaryReadData.endOfChain;
+	    var endOfChain = _fileBinaryReadData$e === undefined ? 0 : _fileBinaryReadData$e;
+	    var _fileBinaryReadData$b = fileBinaryReadData.binaryData;
+	    var binaryData = _fileBinaryReadData$b === undefined ? {} : _fileBinaryReadData$b;
 	    var fatChains = fileBinaryReadData.fatChains;
 	    var fatEntries = fileBinaryReadData.fatEntries;
 
@@ -1351,12 +1297,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	                color: entry[0x43]
 	            };
 
-	            queue.push((0, _getShort2['default'])({
+	            queue.push((0, _getShort2.default)({
 	                from: 0x40,
 	                data: entry,
 	                fileBinaryReadData: fileBinaryReadData
 	            }).then(function (res) {
-	                data.name = (0, _utf16ToAnsi2['default'])({
+	                data.name = (0, _utf16ToAnsi2.default)({
 	                    data: binaryData.excludeUintArray({
 	                        data: entry,
 	                        index: 0,
@@ -1366,7 +1312,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                });
 	            }));
 
-	            queue.push((0, _getLong2['default'])({
+	            queue.push((0, _getLong2.default)({
 	                from: 0x44,
 	                data: entry,
 	                fileBinaryReadData: fileBinaryReadData
@@ -1374,7 +1320,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                data.left = res;
 	            }));
 
-	            queue.push((0, _getLong2['default'])({
+	            queue.push((0, _getLong2.default)({
 	                from: 0x48,
 	                data: entry,
 	                fileBinaryReadData: fileBinaryReadData
@@ -1382,7 +1328,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                data.right = res;
 	            }));
 
-	            queue.push((0, _getLong2['default'])({
+	            queue.push((0, _getLong2.default)({
 	                from: 0x4C,
 	                data: entry,
 	                fileBinaryReadData: fileBinaryReadData
@@ -1390,7 +1336,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                data.child = res;
 	            }));
 
-	            queue.push((0, _getLong2['default'])({
+	            queue.push((0, _getLong2.default)({
 	                from: 0x74,
 	                data: entry,
 	                fileBinaryReadData: fileBinaryReadData
@@ -1398,7 +1344,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                data.start = res;
 	            }));
 
-	            queue.push((0, _getBytes2['default'])({
+	            queue.push((0, _getBytes2.default)({
 	                from: 0x78,
 	                data: entry,
 	                count: 8,
@@ -1423,7 +1369,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	        }
 	    }, reject);
 	}
-	module.exports = exports['default'];
 
 /***/ },
 /* 25 */
@@ -1431,11 +1376,11 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	'use strict';
 
-	Object.defineProperty(exports, '__esModule', {
+	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
 
-	exports['default'] = function () {
+	exports.default = function () {
 	    var params = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
 
 	    var result = '';
@@ -1453,8 +1398,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    return result;
 	};
 
-	module.exports = exports['default'];
-
 /***/ },
 /* 26 */
 /***/ function(module, exports) {
@@ -1465,13 +1408,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	    value: true
 	});
 
-	exports["default"] = function () {
+	exports.default = function () {
 	    var params = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
 	    var _params$from = params.from;
 	    var from = _params$from === undefined ? 0 : _params$from;
 	    var name = params.name;
-	    var _params$fileBinaryReadData = params.fileBinaryReadData;
-	    var fileBinaryReadData = _params$fileBinaryReadData === undefined ? {} : _params$fileBinaryReadData;
+	    var _params$fileBinaryRea = params.fileBinaryReadData;
+	    var fileBinaryReadData = _params$fileBinaryRea === undefined ? {} : _params$fileBinaryRea;
 
 	    var fatEntries = fileBinaryReadData.fatEntries || [];
 
@@ -1484,29 +1427,27 @@ return /******/ (function(modules) { // webpackBootstrap
 	    return null;
 	};
 
-	module.exports = exports["default"];
-
 /***/ },
 /* 27 */
 /***/ function(module, exports) {
 
-	/**
-	 *
-	 * @param params
-	 * @private
-	 */
 	"use strict";
 
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
+	/**
+	 *
+	 * @param params
+	 * @private
+	 */
 
-	exports["default"] = function () {
+	exports.default = function () {
 	    var params = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
 
 	    return new Promise(function (resolve, reject) {
-	        var _params$fileBinaryReadData = params.fileBinaryReadData;
-	        var fileBinaryReadData = _params$fileBinaryReadData === undefined ? {} : _params$fileBinaryReadData;
+	        var _params$fileBinaryRea = params.fileBinaryReadData;
+	        var fileBinaryReadData = _params$fileBinaryRea === undefined ? {} : _params$fileBinaryRea;
 	        var _params$index = params.index;
 	        var index = _params$index === undefined ? 0 : _params$index;
 	        var isRoot = params.isRoot;
@@ -1545,7 +1486,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                fileBinaryReadData: fileBinaryReadData
 	            }));
 	        } else {
-	            getStreamFromBigFile(stream, from, fileBinaryReadData, resolve, reject);
+	            getStreamFromBigFile(stream, from, size, fileBinaryReadData, resolve, reject);
 	        }
 	    });
 	};
@@ -1558,7 +1499,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    return typedArray;
 	}
 
-	function getStreamFromBigFile(stream, from, fileBinaryReadData, resolve, reject) {
+	function getStreamFromBigFile(stream, from, size, fileBinaryReadData, resolve, reject) {
 	    var sectorShift = fileBinaryReadData.sectorShift;
 	    var endOfChain = fileBinaryReadData.endOfChain;
 	    var sectorSize = 1 << fileBinaryReadData;
@@ -1576,7 +1517,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            }
 
 	            from = fileBinaryReadData.fatChains && fileBinaryReadData.fatChains[from] || endOfChain;
-	            getStreamFromBigFile(stream, from, fileBinaryReadData, resolve, reject);
+	            getStreamFromBigFile(stream, from, size, fileBinaryReadData, resolve, reject);
 	        }, reject);
 	    } else {
 	        resolve(prepareStream({
@@ -1586,7 +1527,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	        }));
 	    }
 	}
-	module.exports = exports["default"];
 
 /***/ },
 /* 28 */
@@ -1594,11 +1534,9 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	'use strict';
 
-	Object.defineProperty(exports, '__esModule', {
+	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
 	var _getStreamIndexByName = __webpack_require__(26);
 
@@ -1628,15 +1566,17 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _readText2 = _interopRequireDefault(_readText);
 
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 	/**
 	 *
 	 * @param fileBinaryReadData
 	 * @private
 	 */
 
-	exports['default'] = function (fileBinaryReadData) {
+	exports.default = function (fileBinaryReadData) {
 	    return new Promise(function (resolve, reject) {
-	        var wordDocumentStreamIndex = (0, _getStreamIndexByName2['default'])({
+	        var wordDocumentStreamIndex = (0, _getStreamIndexByName2.default)({
 	            name: 'WordDocument',
 	            fileBinaryReadData: fileBinaryReadData
 	        });
@@ -1645,13 +1585,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	            return reject();
 	        }
 
-	        (0, _getStreamByIndex2['default'])({
+	        (0, _getStreamByIndex2.default)({
 	            index: wordDocumentStreamIndex,
 	            fileBinaryReadData: fileBinaryReadData
 	        }).then(function (wordDocumentStream) {
 	            fileBinaryReadData.wordDocumentStream = wordDocumentStream;
 
-	            return (0, _getShort2['default'])({
+	            return (0, _getShort2.default)({
 	                from: 0x000A,
 	                data: wordDocumentStream,
 	                fileBinaryReadData: fileBinaryReadData
@@ -1663,7 +1603,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                fileBinaryReadData.streamTableNumber = Number((bytes & tmp) === tmp);
 
 	                // Find position of CLX in table stream and CLX's size.
-	                queue.push((0, _getLong2['default'])({
+	                queue.push((0, _getLong2.default)({
 	                    from: 0x01A2,
 	                    data: wordDocumentStream,
 	                    fileBinaryReadData: fileBinaryReadData
@@ -1671,7 +1611,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                    return fileBinaryReadData.clxPosition = res;
 	                }));
 
-	                queue.push((0, _getLong2['default'])({
+	                queue.push((0, _getLong2.default)({
 	                    from: 0x01A6,
 	                    data: wordDocumentStream,
 	                    fileBinaryReadData: fileBinaryReadData
@@ -1680,7 +1620,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                }));
 
 	                // read several values to separate the positions from size in CLX
-	                queue.push((0, _getLong2['default'])({
+	                queue.push((0, _getLong2.default)({
 	                    from: 0x004C,
 	                    data: wordDocumentStream,
 	                    fileBinaryReadData: fileBinaryReadData
@@ -1688,7 +1628,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                    return fileBinaryReadData.ccpText = res;
 	                }));
 
-	                queue.push((0, _getLong2['default'])({
+	                queue.push((0, _getLong2.default)({
 	                    from: 0x0050,
 	                    data: wordDocumentStream,
 	                    fileBinaryReadData: fileBinaryReadData
@@ -1696,7 +1636,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                    return fileBinaryReadData.ccpFtn = res;
 	                }));
 
-	                queue.push((0, _getLong2['default'])({
+	                queue.push((0, _getLong2.default)({
 	                    from: 0x0054,
 	                    data: wordDocumentStream,
 	                    fileBinaryReadData: fileBinaryReadData
@@ -1704,7 +1644,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                    return fileBinaryReadData.ccpHdd = res;
 	                }));
 
-	                queue.push((0, _getLong2['default'])({
+	                queue.push((0, _getLong2.default)({
 	                    from: 0x0058,
 	                    data: wordDocumentStream,
 	                    fileBinaryReadData: fileBinaryReadData
@@ -1712,7 +1652,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                    return fileBinaryReadData.ccpMcr = res;
 	                }));
 
-	                queue.push((0, _getLong2['default'])({
+	                queue.push((0, _getLong2.default)({
 	                    from: 0x005C,
 	                    data: wordDocumentStream,
 	                    fileBinaryReadData: fileBinaryReadData
@@ -1720,7 +1660,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                    return fileBinaryReadData.ccpAtn = res;
 	                }));
 
-	                queue.push((0, _getLong2['default'])({
+	                queue.push((0, _getLong2.default)({
 	                    from: 0x0060,
 	                    data: wordDocumentStream,
 	                    fileBinaryReadData: fileBinaryReadData
@@ -1728,7 +1668,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                    return fileBinaryReadData.ccpEdn = res;
 	                }));
 
-	                queue.push((0, _getLong2['default'])({
+	                queue.push((0, _getLong2.default)({
 	                    from: 0x0064,
 	                    data: wordDocumentStream,
 	                    fileBinaryReadData: fileBinaryReadData
@@ -1736,7 +1676,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                    return fileBinaryReadData.ccpTxbx = res;
 	                }));
 
-	                queue.push((0, _getLong2['default'])({
+	                queue.push((0, _getLong2.default)({
 	                    from: 0x0068,
 	                    data: wordDocumentStream,
 	                    fileBinaryReadData: fileBinaryReadData
@@ -1751,7 +1691,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                    fileBinaryReadData.lastCp += Number(fileBinaryReadData.lastCp !== 0);
 
 	                    // find the table
-	                    fileBinaryReadData.tStreamIndex = (0, _getStreamIndexByName2['default'])({
+	                    fileBinaryReadData.tStreamIndex = (0, _getStreamIndexByName2.default)({
 	                        fileBinaryReadData: fileBinaryReadData,
 	                        name: fileBinaryReadData.streamTableNumber + 'Table'
 	                    });
@@ -1760,7 +1700,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                        return reject();
 	                    }
 
-	                    return (0, _getStreamByIndex2['default'])({
+	                    return (0, _getStreamByIndex2.default)({
 	                        index: fileBinaryReadData.tStreamIndex,
 	                        fileBinaryReadData: fileBinaryReadData
 	                    }).then(function (stream) {
@@ -1772,7 +1712,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	                        fileBinaryReadData.lcbPieceTable = 0;
 	                        fileBinaryReadData.pieceTable = [];
-	                        return (0, _findClxOffset2['default'])({
+	                        return (0, _findClxOffset2.default)({
 	                            from: 0,
 	                            clx: clx,
 	                            fileBinaryReadData: fileBinaryReadData
@@ -1783,7 +1723,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                            }
 
 	                            var index = 0;
-	                            return (0, _fillingCp2['default'])({
+	                            return (0, _fillingCp2.default)({
 	                                index: index,
 	                                fileBinaryReadData: fileBinaryReadData
 	                            }).then(function (fileBinaryReadData) {
@@ -1798,7 +1738,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                                    length: 8
 	                                });
 
-	                                return (0, _readText2['default'])({
+	                                return (0, _readText2.default)({
 	                                    fileBinaryReadData: fileBinaryReadData,
 	                                    length: fileBinaryReadData.pcd.length
 	                                }).then(function (fileBinaryReadData) {
@@ -1816,25 +1756,23 @@ return /******/ (function(modules) { // webpackBootstrap
 	    });
 	};
 
-	module.exports = exports['default'];
-
 /***/ },
 /* 29 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	Object.defineProperty(exports, '__esModule', {
+	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
 	var _getLong = __webpack_require__(20);
 
 	var _getLong2 = _interopRequireDefault(_getLong);
 
-	exports['default'] = function () {
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	exports.default = function () {
 	    var params = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
 
 	    return new Promise(function (resolve, reject) {
@@ -1856,7 +1794,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    });
 
 	    if (index >= 0) {
-	        (0, _getLong2['default'])({
+	        (0, _getLong2.default)({
 	            from: index,
 	            data: clx,
 	            fileBinaryReadData: fileBinaryReadData
@@ -1880,7 +1818,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	        resolve(fileBinaryReadData);
 	    }
 	}
-	module.exports = exports['default'];
 
 /***/ },
 /* 30 */
@@ -1888,15 +1825,15 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	'use strict';
 
-	Object.defineProperty(exports, '__esModule', {
+	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
 	var _getLong = __webpack_require__(20);
 
 	var _getLong2 = _interopRequireDefault(_getLong);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	/**
 	 *
@@ -1904,14 +1841,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * @private
 	 */
 
-	exports['default'] = function () {
+	exports.default = function () {
 	    var params = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
 
 	    return new Promise(function (resolve, reject) {
 	        var _params$index = params.index;
 	        var index = _params$index === undefined ? 0 : _params$index;
-	        var _params$fileBinaryReadData = params.fileBinaryReadData;
-	        var fileBinaryReadData = _params$fileBinaryReadData === undefined ? {} : _params$fileBinaryReadData;
+	        var _params$fileBinaryRea = params.fileBinaryReadData;
+	        var fileBinaryReadData = _params$fileBinaryRea === undefined ? {} : _params$fileBinaryRea;
 
 	        fileBinaryReadData.cp = fileBinaryReadData.cp || [];
 	        recursiveRead(index, fileBinaryReadData, resolve, reject);
@@ -1919,7 +1856,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 	function recursiveRead(index, fileBinaryReadData, resolve, reject) {
-	    (0, _getLong2['default'])({
+	    (0, _getLong2.default)({
 	        data: fileBinaryReadData.pieceTable,
 	        fileBinaryReadData: fileBinaryReadData,
 	        from: index
@@ -1933,7 +1870,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	        }
 	    }, reject);
 	}
-	module.exports = exports['default'];
 
 /***/ },
 /* 31 */
@@ -1941,23 +1877,23 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	'use strict';
 
-	Object.defineProperty(exports, '__esModule', {
+	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
 	var _getLong = __webpack_require__(20);
 
 	var _getLong2 = _interopRequireDefault(_getLong);
 
-	var _unicodeToUtf8 = __webpack_require__(32);
+	var _unicodeToUtf = __webpack_require__(32);
 
-	var _unicodeToUtf82 = _interopRequireDefault(_unicodeToUtf8);
+	var _unicodeToUtf2 = _interopRequireDefault(_unicodeToUtf);
 
 	var _utf16ToAnsi = __webpack_require__(25);
 
 	var _utf16ToAnsi2 = _interopRequireDefault(_utf16ToAnsi);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	/**
 	 *
@@ -1965,14 +1901,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * @private
 	 */
 
-	exports['default'] = function () {
+	exports.default = function () {
 	    var params = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
 
 	    return new Promise(function (resolve, reject) {
 	        var _params$index = params.index;
 	        var index = _params$index === undefined ? 0 : _params$index;
-	        var _params$fileBinaryReadData = params.fileBinaryReadData;
-	        var fileBinaryReadData = _params$fileBinaryReadData === undefined ? {} : _params$fileBinaryReadData;
+	        var _params$fileBinaryRea = params.fileBinaryReadData;
+	        var fileBinaryReadData = _params$fileBinaryRea === undefined ? {} : _params$fileBinaryRea;
 	        var _params$length = params.length;
 	        var length = _params$length === undefined ? 0 : _params$length;
 
@@ -1984,7 +1920,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	function readRecursive(index, fileBinaryReadData, length, resolve, reject) {
 	    if (index < length) {
-	        (0, _getLong2['default'])({
+	        (0, _getLong2.default)({
 	            from: 2,
 	            data: fileBinaryReadData.pcd[index],
 	            fileBinaryReadData: fileBinaryReadData
@@ -2011,7 +1947,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	            // if it's Unicode then convert to normal state
 	            if (!isAnsi) {
-	                (0, _unicodeToUtf82['default'])({
+	                (0, _unicodeToUtf2.default)({
 	                    data: part,
 	                    fileBinaryReadData: fileBinaryReadData
 	                }).then(function (text) {
@@ -2020,7 +1956,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                    readRecursive(index, fileBinaryReadData, length, resolve, reject);
 	                });
 	            } else {
-	                fileBinaryReadData.text += (0, _utf16ToAnsi2['default'])({
+	                fileBinaryReadData.text += (0, _utf16ToAnsi2.default)({
 	                    data: part
 	                });
 
@@ -2032,7 +1968,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	        resolve(fileBinaryReadData);
 	    }
 	}
-	module.exports = exports['default'];
 
 /***/ },
 /* 32 */
@@ -2040,15 +1975,15 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	'use strict';
 
-	Object.defineProperty(exports, '__esModule', {
+	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
 	var _getShort = __webpack_require__(18);
 
 	var _getShort2 = _interopRequireDefault(_getShort);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	/**
 	 *
@@ -2056,7 +1991,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * @private
 	 */
 
-	exports['default'] = function (params) {
+	exports.default = function (params) {
 	    return new Promise(function (resolve, reject) {
 	        var _params$result = params.result;
 	        var result = _params$result === undefined ? '' : _params$result;
@@ -2109,13 +2044,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	            index += 2;
 	            recursiveRead(data, index, length, fileBinaryReadData, result, resolve, reject);
 	        } else {
-	            (0, _getShort2['default'])({
+	            (0, _getShort2.default)({
 	                fileBinaryReadData: fileBinaryReadData,
 	                data: cd,
 	                from: 0
-	            }).then(function (res) {
-	                console.log(res);
-
+	            }).then(function () {
 	                index += 2;
 	                recursiveRead(data, index, length, fileBinaryReadData, result, resolve, reject);
 	            }, reject);
@@ -2124,7 +2057,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	        resolve(result);
 	    }
 	}
-	module.exports = exports['default'];
 
 /***/ },
 /* 33 */
@@ -2141,8 +2073,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    };
 	}
 
-	exports["default"] = {};
-	module.exports = exports["default"];
+	exports.default = {};
 
 /***/ }
 /******/ ])

@@ -38,7 +38,7 @@ export default (params = {}) => {
                 fileBinaryReadData
             }));
         } else {
-            getStreamFromBigFile(stream, from, fileBinaryReadData, resolve, reject);
+            getStreamFromBigFile(stream, from, size, fileBinaryReadData, resolve, reject);
         }
     });
 };
@@ -51,7 +51,7 @@ function prepareStream (params) {
     return typedArray;
 }
 
-function getStreamFromBigFile (stream, from, fileBinaryReadData, resolve, reject) {
+function getStreamFromBigFile (stream, from, size, fileBinaryReadData, resolve, reject) {
     const sectorShift = fileBinaryReadData.sectorShift;
     const endOfChain = fileBinaryReadData.endOfChain;
     const sectorSize = 1 << fileBinaryReadData;
@@ -69,7 +69,7 @@ function getStreamFromBigFile (stream, from, fileBinaryReadData, resolve, reject
             }
 
             from = (fileBinaryReadData.fatChains && fileBinaryReadData.fatChains[from]) || endOfChain;
-            getStreamFromBigFile(stream, from, fileBinaryReadData, resolve, reject);
+            getStreamFromBigFile(stream, from, size, fileBinaryReadData, resolve, reject);
         }, reject);
     } else {
         resolve(prepareStream({

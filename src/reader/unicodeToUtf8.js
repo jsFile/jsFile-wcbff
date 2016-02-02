@@ -54,9 +54,7 @@ function recursiveRead (data, index, length, fileBinaryReadData, result, resolve
                 fileBinaryReadData,
                 data: cd,
                 from: 0
-            }).then((res) => {
-                console.log(res);
-
+            }).then(() => {
                 index += 2;
                 recursiveRead(data, index, length, fileBinaryReadData, result, resolve, reject);
             }, reject);

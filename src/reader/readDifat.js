@@ -62,7 +62,9 @@ function recursiveReadLastSectors (params = {}) {
     }
 
     const start = (from + 1) << fileBinaryReadData.sectorShift;
-    for (let i = 0; i < len; i += 4) {
+    let i = 0;
+
+    for (; i < len; i += 4) {
         queue.push(getLong({
             fileBinaryReadData,
             from: start + i

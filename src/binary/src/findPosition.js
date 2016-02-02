@@ -3,7 +3,7 @@
  * @param options
  * @returns {*}
  */
-export default function (options = {}) {
+export default function findPosition (options = {}) {
     let {offset = 0, data = [], needle} = options;
     let bytes;
 

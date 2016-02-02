@@ -3,7 +3,7 @@
  * @param options
  * @returns {*}
  */
-export default function (options = {}) {
+export default function excludeUintArray (options = {}) {
     let dataArray;
     const arr = [];
     let {length = 0, index = 0, data = []} = options;

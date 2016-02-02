@@ -17,19 +17,18 @@ class Binary {
     constructor (blob = null) {
         this.blob = blob;
         this.size = (blob && blob.size) || 0;
+        this.ord = ord;
+        this.uintArrayToHex = uintArrayToHex;
+        this.findPosition = findPosition;
+        this.getDataHelper = getDataHelper;
+        this.getUint8Array = getUint8Array;
+        this.getUint16Array = getUint16Array;
+        this.getUint32Array = getUint32Array;
+        this.readUint8Array = readUint8Array;
+        this.reverseUintArray = reverseUintArray;
+        this.uintArraySplit = uintArraySplit;
+        this.excludeUintArray = excludeUintArray;
     }
-
-    uintArrayToHex = uintArrayToHex
-    findPosition = findPosition
-    getDataHelper = getDataHelper
-    getUint8Array = getUint8Array
-    getUint16Array = getUint16Array
-    getUint32Array = getUint32Array
-    ord = ord
-    readUint8Array = readUint8Array
-    reverseUintArray = reverseUintArray
-    uintArraySplit = uintArraySplit
-    excludeUintArray = excludeUintArray
 }
 
 export default Binary;

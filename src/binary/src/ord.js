@@ -3,7 +3,7 @@
  * @param str
  * @returns {*}
  */
-export default function (str) {
+export default function ord (str) {
     str = String(str);
 
     let code = str.charCodeAt(0);
